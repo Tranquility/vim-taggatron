@@ -128,7 +128,7 @@ endfunction
 " Initialise taggatron auto-commands
 augroup Taggatron
     autocmd!
-    autocmd BufNew,BufRead * call taggatron#SetTags(taggatron#get('tagdefaults'))
+    autocmd BufNew,BufRead * call taggatron#CheckCommandList(-1)
     autocmd BufWritePost * call taggatron#CheckCommandList(0)
 augroup END
 

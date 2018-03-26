@@ -52,7 +52,9 @@ function! taggatron#CheckCommandList(forceCreate)
     let l:cmdset['tagfile'] = fnamemodify(l:cmdset['tagfile'], ':p')
 
     " Create tag file and ensure that it is in use by the editor
-    call taggatron#CreateTags(l:cmdset, a:forceCreate)
+    if a:forceCreate != -1
+       call taggatron#CreateTags(l:cmdset, a:forceCreate)
+    endif
     call taggatron#SetTags(l:cmdset['tagfile'])
 endfunction
 
